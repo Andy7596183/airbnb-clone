@@ -1,29 +1,48 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <Navbar/>
     <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import Navbar from "@/components/Navbar";
+export default {
+  components: {
+    Navbar
+  },
+  mounted() {
+    setTimeout(() => {
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: "2048396828605759",
+          cookie: true,
+          xfbml: true,
+          version: "v3.3"
+        });
+
+        FB.AppEvents.logPageView();
+        console.log("fbInit");
+      };
+
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    }, 2000);
+  },
+  methods: {
+    login() {
+      let vm = this;
+      FB.login(
+        function(response) {
+          console.log("res", response);
+        },
+        {
+          scope: "email, public_profile",
+          return_scopes: true
+        }
+      );
     }
   }
-}
-</style>
+};
+</script>

@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "date-fns": "^1.30.1",
     "vue": "^2.6.10",
+    "vue-airbnb-style-datepicker": "^2.7.1",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
   },
@@ -32,7 +34,7 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "@vue/airbnb"
+      "@vue/prettier"
     ],
     "rules": {},
     "parserOptions": {

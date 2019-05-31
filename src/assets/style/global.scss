@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {}
+
+button {
+  border: 0;
+
+  &.standard {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: palevioletred;
+    border-radius: 5px;
+  }
+}
