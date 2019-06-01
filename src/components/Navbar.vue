@@ -113,7 +113,7 @@ export default {
         position: absolute;
         left: 0;
         right: 0;
-        bottom: 0;
+        bottom: -10px;
         height: 2px;
         background-color: #fff;
         display: none;

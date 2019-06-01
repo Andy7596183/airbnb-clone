@@ -38,11 +38,7 @@
 export default {
   name: "Header",
   data() {
-    return {
-      dateFormat: "D MMM",
-      dateOne: "",
-      dateTwo: ""
-    };
+    return {};
   },
   methods: {
     showGuestMenu() {}
@@ -54,24 +50,33 @@ export default {
 .home-header {
   position: relative;
   height: 100vh;
-  background-image: url("../../assets/img/home_bg_1920_1060.jpg");
+  min-height: 700px;
   background-size: cover;
+  background-position: 0 40%;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    url("https://a0.muscache.com/4ea/air/r:w3100-h2074-sfit,e:fjpg-c80/pictures/0ffd8594-f123-43f0-85bb-7ef88c6f0624.jpg");
 
   &__form {
     position: absolute;
-    top: 150px;
-    left: 100px;
+    top: 120px;
+    left: 200px;
     width: 450px;
     display: flex;
     flex-direction: column;
-    padding: 40px 30px;
+    padding: 30px 30px;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 10px 10px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.3);
 
     h2 {
       font-weight: bold;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
+      line-height: 2rem;
       margin-bottom: 20px;
     }
 
@@ -87,14 +92,12 @@ export default {
       input {
         font-size: 1.2rem;
         padding: 10px;
-        border: lightgray solid 1px;
-        border-radius: 5px;
       }
 
       .select-btn {
         width: 100%;
         background-color: #fff;
-        border: lightgray solid 1px;
+        border: #e9e9e9 solid 1px;
 
         div {
           display: flex;
