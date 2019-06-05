@@ -4,7 +4,7 @@
       <a v-for="(rec, index) in recommendations" :key="index" href="#">
         <div
           class="rec-img"
-          :style="{'background-color': 'gray', 'background-image': `url(${rec.img})`}"
+          :style="{'background-color': 'gray', 'background-image': `linear-gradient(to right, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url(${rec.img})`}"
         />
         <div class="rec-text">
           <h4 class="rec-city">{{ rec.city }}</h4>

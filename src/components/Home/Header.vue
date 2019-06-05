@@ -9,8 +9,16 @@
       <div class="form-group-wrapper">
         <div class="form-group">
           <span>入住</span>
-          <input type="text" name="checkin-date" placeholder="年-月-日" readonly>
-          <div class="date-picker"></div>
+          <input
+            type="text"
+            name="checkin-date"
+            placeholder="年-月-日"
+            @focus="openDatePicker"
+            ref="checkinDate"
+            v-model="dateOne"
+            readonly
+          >
+          <DatePicker v-if="showDatePickerOne" @setDate="setDateOne"/>
         </div>
         <div class="form-group">
           <span>退房</span>
@@ -35,13 +43,42 @@
 </template>
 
 <script>
+import DatePicker from "@/components/shared/DatePicker";
+
 export default {
   name: "Header",
+  components: {
+    DatePicker
+  },
   data() {
-    return {};
+    return {
+      showDatePickerOne: false,
+      dateOne: ""
+    };
   },
   methods: {
-    showGuestMenu() {}
+    openDatePicker() {
+      const checkinDate = document.querySelector("[name='checkin-date']");
+      // const datePicker = document.querySelector(".date-picker");
+
+      this.showDatePickerOne = true;
+
+      document.addEventListener("click", e => {
+        const node = e.target;
+        if (
+          checkinDate.nextSibling.contains(node) ||
+          checkinDate.isSameNode(node)
+        ) {
+          this.showDatePickerOne = true;
+        } else {
+          this.showDatePickerOne = false;
+        }
+      });
+    },
+    setDateOne(date) {
+      this.dateOne = date;
+      this.showDatePickerOne = false;
+    }
   }
 };
 </script>
